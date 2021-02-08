@@ -26,7 +26,10 @@
     "eject": "react-scripts eject",
     "electron-dev": "tsc -p ./electron && set ELECTRON_START_URL=http://localhost:3000 && electron .",
     "electron-build": "npm run build && tsc -p ./electron",
-    "react-electron-start": "concurrently \"BROWSER=none npm run start\" \"npm run electron-dev\""
+    "react-electron-start": "concurrently \"BROWSER=none npm run start\" \"npm run electron-dev\"",
+    "lint-electron": "tslint -c tslint.json electron/**/*.ts --fix --format verbose",
+    "lint-react": "tslint -c tslint.json src/**/*.{ts,tsx} --fix --format verbose",
+    "lint": "npm run lint-electron && npm run lint-react"
   },
   "eslintConfig": {
     "extends": [
@@ -47,6 +50,11 @@
     ]
   },
   "devDependencies": {
-    "concurrently": "^5.3.0"
+    "concurrently": "^5.3.0",
+    "prettier": "^2.2.1",
+    "tslint": "^6.1.3",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-plugin-prettier": "^2.3.0",
+    "tslint-react": "^5.0.0"
   }
 }
